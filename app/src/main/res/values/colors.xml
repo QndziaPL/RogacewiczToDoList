@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#455A64</color>
+    <color name="colorPrimaryDark">#607D8B</color>
+    <color name="colorAccent">#CFD8DC</color>
+    <color name="text_color">#FFFFFF</color>
+    <color name="info_background">#FFFFFF</color>
+    <color name="hint_color">#57FFFFFF</color>
+    <color name="checked_task_row_background_color">#455A64</color>
+</resources>
+
+<!--<color name="colorPrimary">#795548</color>-->
+<!--<color name="colorPrimaryDark">#5D4037</color>-->
+<!--<color name="colorAccent">#607D8B</color>-->
+<!--<color name="text_color">#FFFFFF</color>-->
+<!--<color name="info_background">#FFFFFF</color>-->
+<!--<color name="hint_color">#57FFFFFF</color>-->
