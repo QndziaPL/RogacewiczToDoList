@@ -25,7 +25,7 @@ abstract class TaskDatabase : RoomDatabase() {
             super.onOpen(db)
             INSTANCE?.let { database ->
                 scope.launch {
-                    var taskDao = database.taskDao()
+//                    var taskDao = database.taskDao()
 
                 }
             }

@@ -14,12 +14,13 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
 import kotlinx.android.synthetic.main.fragment_addedit.*
 import kotlinx.coroutines.InternalCoroutinesApi
+import java.util.*
 
 @InternalCoroutinesApi
 private lateinit var taskViewModel: TaskViewModel
 
 class EditFragment : Fragment() {
-    var navController: NavController? = null
+    private var navController: NavController? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,8 +29,9 @@ class EditFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_addedit, container, false)
     }
 
-    val args: EditFragmentArgs by navArgs()
+    private val args: EditFragmentArgs by navArgs()
 
+    @ExperimentalStdlibApi
     @InternalCoroutinesApi
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -37,7 +39,7 @@ class EditFragment : Fragment() {
         navController = Navigation.findNavController(view)
         taskViewModel = ViewModelProvider(this).get(TaskViewModel::class.java)
         val oldTaskName = args.itemName
-
+        taskNameEV.requestFocus()
         taskNameEV.setText(oldTaskName)
         showKeyboard()
 
@@ -46,7 +48,7 @@ class EditFragment : Fragment() {
 
             if (taskNameEV.text.isNotEmpty()) {
                 hideKeyboard()
-                val taskNewName = taskNameEV.text.toString().capitalize()
+                val taskNewName = taskNameEV.text.toString().capitalize(Locale.ROOT)
                 val oldTask = Task(oldTaskName)
                 val newTask = Task(taskNewName)
                 taskViewModel.edit(oldTask, newTask)
@@ -72,12 +74,12 @@ class EditFragment : Fragment() {
     }
 
     private fun showKeyboard() {
-        var imm = activity!!.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        val imm = activity!!.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY)
     }
 
     private fun hideKeyboard() {
-        var imm = activity!!.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        val imm = activity!!.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(view?.windowToken, 0)
     }
 

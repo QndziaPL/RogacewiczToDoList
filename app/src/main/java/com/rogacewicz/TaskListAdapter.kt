@@ -12,14 +12,14 @@ import kotlinx.coroutines.InternalCoroutinesApi
 @InternalCoroutinesApi
 class TaskListAdapter internal constructor(
     context: Context,
-    val delegate: Operations
+    private val delegate: Operations
 ) : RecyclerView.Adapter<TaskListAdapter.TaskViewHolder>() {
 
     private val inflater: LayoutInflater = LayoutInflater.from(context)
     private var tasks = emptyList<Task>()
 
     inner class TaskViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var task_name: TextView = itemView.findViewById(R.id.taskNameTV)
+        var taskName: TextView = itemView.findViewById(R.id.taskNameTV)
         val editBtn: Button = itemView.findViewById(R.id.editBtn)
         val deleteBtn: Button = itemView.findViewById(R.id.deleteBtn)
         val isDoneBox: CheckBox = itemView.findViewById(R.id.isDoneBox)
@@ -37,7 +37,7 @@ class TaskListAdapter internal constructor(
 
 
 
-        holder.task_name.text = current.taskName
+        holder.taskName.text = current.taskName
 
         holder.deleteBtn.setOnClickListener {
             delegate.delete(position)
@@ -45,7 +45,7 @@ class TaskListAdapter internal constructor(
         holder.editBtn.setOnClickListener {
             delegate.edit(position, holder.itemView)
         }
-        holder.isDoneBox.setOnClickListener { v ->
+        holder.isDoneBox.setOnClickListener {
             delegate.changeStatus(position, holder.isDoneBox.isChecked)
 
         }

@@ -11,10 +11,8 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.fragment_list.*
-import kotlinx.android.synthetic.main.task_row.*
 import kotlinx.coroutines.InternalCoroutinesApi
 import android.view.MenuInflater
-import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
 
 private const val TAG = "RecyclerViewFragment"
@@ -36,7 +34,7 @@ class RecyclerViewFragment : Fragment(), View.OnClickListener, Operations {
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater!!.inflate(R.menu.main_menu, menu)
+        inflater.inflate(R.menu.main_menu, menu)
         super.onCreateOptionsMenu(menu, inflater)
     }
 
