@@ -20,4 +20,5 @@
     <string name="cancel_delete_confirm_button">Oh No! Wait!</string>
     <string name="delete_confirmation_question">Do you really want to delete this task?</string>
     <string name="delete_all_confirmation_question">Do you really want to delete ALL of the tasks?</string>
+    <string name="logodescription">logo of author</string>
 </resources>
