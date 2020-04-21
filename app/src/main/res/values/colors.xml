@@ -6,6 +6,7 @@
     <color name="text_color">#FFFFFF</color>
     <color name="info_background">#FFFFFF</color>
     <color name="hint_color">#57FFFFFF</color>
+    <color name="button_tint_over_whitebase">#CCCCCC</color>
     <color name="checked_task_row_background_color">#455A64</color>
 </resources>
 
