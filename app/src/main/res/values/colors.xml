@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#455A64</color>
     <color name="colorPrimaryDark">#607D8B</color>
-    <color name="colorAccent">#CFD8DC</color>
+    <color name="colorAccent">#FF0000</color>
     <color name="text_color">#FFFFFF</color>
     <color name="info_background">#FFFFFF</color>
     <color name="hint_color">#57FFFFFF</color>
@@ -16,3 +16,6 @@
 <!--<color name="text_color">#FFFFFF</color>-->
 <!--<color name="info_background">#FFFFFF</color>-->
 <!--<color name="hint_color">#57FFFFFF</color>-->
+
+
+<!--<color name="colorAccent">#CFD8DC</color>-->
