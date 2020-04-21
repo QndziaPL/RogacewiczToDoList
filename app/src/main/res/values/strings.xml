@@ -11,10 +11,13 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="taskNameTV_hint">enter task</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="menu_deleteall_text">Delete all tasks</string>
     <string name="menu_info_text">Info</string>
     <string name="info_header_text">Tasks Application</string>
     <string name="info_text">"Create, edit and delete tasks \nin a simplest possible way!\n\nIf you want to clear whole list\nuse menu in upper right corner.\n\nEnjoy! "</string>
+    <string name="ok_delete_confirm_button">DELETE</string>
+    <string name="cancel_delete_confirm_button">Oh No! Wait!</string>
+    <string name="delete_confirmation_question">Do you really want to delete this task?</string>
+    <string name="delete_all_confirmation_question">Do you really want to delete ALL of the tasks?</string>
 </resources>

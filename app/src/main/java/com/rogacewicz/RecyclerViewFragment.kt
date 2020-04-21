@@ -1,5 +1,7 @@
 package com.rogacewicz
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.os.Bundle
 import android.util.Log
 import android.view.*
@@ -46,7 +48,14 @@ class RecyclerViewFragment : Fragment(), View.OnClickListener, Operations {
                 navController!!.navigate(R.id.action_listFragment_to_infoFragment)
             }
             R.id.deleteall_menu -> {
-                taskViewModel.deleteAll()
+                val builder = AlertDialog.Builder(context)
+                builder.setMessage(R.string.delete_all_confirmation_question)
+                builder.setPositiveButton(R.string.ok_delete_confirm_button) { _: DialogInterface, _: Int ->
+                    taskViewModel.deleteAll()
+                }
+                builder.setNegativeButton(R.string.cancel_delete_confirm_button) { _: DialogInterface, _: Int -> }
+                builder.show()
+
             }
         }
         return super.onOptionsItemSelected(item)

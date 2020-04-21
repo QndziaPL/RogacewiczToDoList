@@ -1,6 +1,8 @@
 package com.rogacewicz
 
+import android.app.AlertDialog
 import android.content.Context
+import android.content.DialogInterface
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,6 +29,7 @@ class TaskListAdapter internal constructor(
 
     }
 
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
         val itemView = inflater.inflate(R.layout.task_row, parent, false)
         return TaskViewHolder(itemView)
@@ -40,7 +43,18 @@ class TaskListAdapter internal constructor(
         holder.taskName.text = current.taskName
 
         holder.deleteBtn.setOnClickListener {
-            delegate.delete(position)
+            val builder = AlertDialog.Builder(it.context)
+            builder.setMessage(R.string.delete_confirmation_question)
+            builder.setPositiveButton(R.string.ok_delete_confirm_button) { _: DialogInterface, _: Int ->
+                delegate.delete(position)
+            }
+            builder.setNegativeButton(
+                R.string.cancel_delete_confirm_button
+            ) { _: DialogInterface, _: Int -> }
+            builder.show()
+
+
+//            delegate.delete(position)
         }
         holder.editBtn.setOnClickListener {
             delegate.edit(position, holder.itemView)
@@ -52,9 +66,9 @@ class TaskListAdapter internal constructor(
 
         holder.isDoneBox.isChecked = current.isDone
 
-        if(holder.isDoneBox.isChecked){
+        if (holder.isDoneBox.isChecked) {
             holder.taskRowLayout.setBackgroundResource(R.drawable.task_row_background_checked)
-        }else{
+        } else {
             holder.taskRowLayout.setBackgroundResource(R.drawable.task_row_background)
         }
 
