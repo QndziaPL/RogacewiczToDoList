@@ -3,6 +3,7 @@ package com.rogacewicz
 
 import android.content.Context
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -41,21 +42,25 @@ class AddFragment : Fragment() {
         taskNameEV.requestFocus()
         showKeyboard()
 
-        //adding new task if editview isnt empty
         saveBtn.setOnClickListener {
 
             if (taskNameEV.text.isNotEmpty()) {
                 hideKeyboard()
 
-                val task = taskNameEV.text.toString().capitalize(Locale.ROOT)
-                val addtask = Task(task)
-                taskViewModel.insert(addtask)
+                Handler().postDelayed(
+                    {
+                        val task = taskNameEV.text.toString().capitalize(Locale.ROOT)
+                        val addtask = Task(task)
+                        taskViewModel.insert(addtask)
+                        navController!!.navigate(R.id.action_addEditFragment_to_listFragment)
+                    }, 300
+                )
+//                val task = taskNameEV.text.toString().capitalize(Locale.ROOT)
+//                val addtask = Task(task)
+//                taskViewModel.insert(addtask)
 
-//val runnable = navController!!.navigate(R.id.action_addEditFragment_to_listFragment)
-//                runnable.
-//                Handler().postDelayed(, 500)
 
-                navController!!.navigate(R.id.action_addEditFragment_to_listFragment)
+//                navController!!.navigate(R.id.action_addEditFragment_to_listFragment)
 
             } else {
                 Toast.makeText(activity, "You can't add empty task", Toast.LENGTH_LONG).show()
@@ -83,9 +88,6 @@ class AddFragment : Fragment() {
         val imm = activity!!.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(view?.windowToken, 0)
     }
-
-
-
 
 
 }

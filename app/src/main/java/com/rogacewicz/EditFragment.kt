@@ -2,6 +2,7 @@ package com.rogacewicz
 
 import android.content.Context
 import android.os.Bundle
+import android.os.Handler
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -48,14 +49,19 @@ class EditFragment : Fragment() {
 
             if (taskNameEV.text.isNotEmpty()) {
                 hideKeyboard()
-                val taskNewName = taskNameEV.text.toString().capitalize(Locale.ROOT)
-                val oldTask = Task(oldTaskName)
-                val newTask = Task(taskNewName)
-                taskViewModel.edit(oldTask, newTask)
+                Handler().postDelayed(
+                    {
+                        val taskNewName = taskNameEV.text.toString().capitalize(Locale.ROOT)
+                        val oldTask = Task(oldTaskName)
+                        val newTask = Task(taskNewName)
+                        taskViewModel.edit(oldTask, newTask)
 
 
 
-                navController!!.navigate(R.id.action_editFragment_to_listFragment)
+                        navController!!.navigate(R.id.action_editFragment_to_listFragment)
+                    },300
+                )
+
 
             } else {
                 Toast.makeText(activity, "You can't add empty task", Toast.LENGTH_LONG).show()

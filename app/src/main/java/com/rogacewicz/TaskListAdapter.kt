@@ -38,8 +38,6 @@ class TaskListAdapter internal constructor(
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
         val current = tasks[position]
 
-
-
         holder.taskName.text = current.taskName
 
         holder.deleteBtn.setOnClickListener {
