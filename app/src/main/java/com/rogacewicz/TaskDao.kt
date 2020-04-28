@@ -18,8 +18,8 @@ interface TaskDao {
     @Query("DELETE FROM task_table")
     suspend fun deleteAll()
 
-    @Query("UPDATE task_table SET task_name= :task_new WHERE task_name= :task_old")
-    suspend fun edit(task_old: String, task_new: String)
+    @Query("UPDATE task_table SET task_name= :task_new, task_desc= :task_desc WHERE task_name= :task_old")
+    suspend fun edit(task_old: String, task_new: String, task_desc: String)
 
     @Update
     suspend fun editStatus(task: Task)

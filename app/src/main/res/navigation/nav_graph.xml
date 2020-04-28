@@ -78,5 +78,8 @@
         <argument
             android:name="itemName"
             app:argType="string" />
+        <argument
+            android:name="itemDesc"
+            app:argType="string" />
     </fragment>
 </navigation>

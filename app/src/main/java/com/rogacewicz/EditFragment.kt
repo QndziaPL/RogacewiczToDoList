@@ -40,11 +40,21 @@ class EditFragment : Fragment() {
         navController = Navigation.findNavController(view)
         taskViewModel = ViewModelProvider(this).get(TaskViewModel::class.java)
         val oldTaskName = args.itemName
-        taskNameEV.requestFocus()
+        val oldTaskDesc = args.itemDesc
+//        taskNameEV.requestFocus()
         taskNameEV.setText(oldTaskName)
-        showKeyboard()
+        taskDescEV.setText(oldTaskDesc)
 
-        // updating the task
+//        Handler().postDelayed({showKeyboard()},300 )
+
+
+        taskDescEV.isEnabled = true
+//        taskDescEV.isClickable = true
+//        taskDescEV.linksClickable = true
+//        taskDescEV.isCursorVisible = false
+//        taskDescEV.isFocusable = false
+
+
         saveBtn.setOnClickListener {
 
             if (taskNameEV.text.isNotEmpty()) {
@@ -52,14 +62,15 @@ class EditFragment : Fragment() {
                 Handler().postDelayed(
                     {
                         val taskNewName = taskNameEV.text.toString().capitalize(Locale.ROOT)
+                        val taskNewDesc = taskDescEV.text.toString()
                         val oldTask = Task(oldTaskName)
-                        val newTask = Task(taskNewName)
+                        val newTask = Task(taskNewName, taskNewDesc)
                         taskViewModel.edit(oldTask, newTask)
 
 
 
                         navController!!.navigate(R.id.action_editFragment_to_listFragment)
-                    },300
+                    }, 300
                 )
 
 

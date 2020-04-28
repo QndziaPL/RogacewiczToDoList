@@ -54,9 +54,13 @@ class TaskListAdapter internal constructor(
 
 //            delegate.delete(position)
         }
-        holder.editBtn.setOnClickListener {
+
+        holder.taskName.setOnClickListener {
             delegate.edit(position, holder.itemView)
         }
+//        holder.editBtn.setOnClickListener {
+//            delegate.edit(position, holder.itemView)
+//        }
         holder.isDoneBox.setOnClickListener {
             delegate.changeStatus(position, holder.isDoneBox.isChecked)
 

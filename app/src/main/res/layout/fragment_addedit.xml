@@ -18,18 +18,22 @@
 
         android:ems="10"
         android:hint="@string/taskNameTV_hint"
-        android:inputType="textMultiLine"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:lines="1"
+        android:maxLength="15"
+        android:maxLines="1"
         android:paddingStart="12dp"
         android:paddingTop="16dp"
         android:paddingEnd="8dp"
         android:paddingBottom="18dp"
+        android:singleLine="true"
         android:textColor="@color/text_color"
         android:textColorHint="@color/hint_color"
         android:textSize="25sp"
         app:layout_constraintEnd_toStartOf="@+id/saveBtn"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:importantForAutofill="no" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/saveBtn"
@@ -44,6 +48,31 @@
         android:textColor="@color/text_color"
         app:layout_constraintBaseline_toBaselineOf="@+id/taskNameEV"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/taskDescEV"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:autoLink="web"
+        android:background="@drawable/task_row_background"
+        android:enabled="true"
+        android:gravity="start|top"
+        android:hint="@string/taskDescTV_hint"
+        android:inputType="textMultiLine|text"
+        android:linksClickable="true"
+        android:paddingStart="12dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="8dp"
+        android:textColor="@color/text_color"
+        android:textColorHint="@color/hint_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/saveBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/taskNameEV" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 <!--<Button-->

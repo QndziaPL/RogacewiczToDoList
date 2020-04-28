@@ -14,8 +14,8 @@ class TaskRepository(private val taskDao: TaskDao) {
         taskDao.delete(task)
     }
 
-    suspend fun edit(taskOld: Task, taskNew: Task ) {
-        taskDao.edit(taskOld.taskName, taskNew.taskName)
+    suspend fun edit(taskOld: Task, taskNew: Task) {
+        taskDao.edit(taskOld.taskName, taskNew.taskName, taskNew.taskDesc)
     }
 
 

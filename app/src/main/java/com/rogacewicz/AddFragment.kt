@@ -40,7 +40,7 @@ class AddFragment : Fragment() {
         navController = Navigation.findNavController(view)
         taskViewModel = ViewModelProvider(this).get(TaskViewModel::class.java)
         taskNameEV.requestFocus()
-        showKeyboard()
+        Handler().postDelayed({showKeyboard()},300 )
 
         saveBtn.setOnClickListener {
 
@@ -49,8 +49,9 @@ class AddFragment : Fragment() {
 
                 Handler().postDelayed(
                     {
-                        val task = taskNameEV.text.toString().capitalize(Locale.ROOT)
-                        val addtask = Task(task)
+                        val name = taskNameEV.text.toString().capitalize(Locale.ROOT)
+                        val desc = taskDescEV.text.toString().capitalize(Locale.ROOT)
+                        val addtask = Task(name, desc)
                         taskViewModel.insert(addtask)
                         navController!!.navigate(R.id.action_addEditFragment_to_listFragment)
                     }, 300

@@ -100,8 +100,15 @@ class RecyclerViewFragment : Fragment(), View.OnClickListener, Operations {
 
             //przekazanie argumentów do kolejnego fragmentu (w tym momencie do edit fragmentu)
             val itemName = item.taskName
-            val action = RecyclerViewFragmentDirections.actionListFragmentToEditFragment(itemName)
-            v.findNavController().navigate(action)
+            val itemDesc = item.taskDesc
+
+
+
+            val actionName = RecyclerViewFragmentDirections.actionListFragmentToEditFragment(itemName, itemDesc)
+//            val actionDesc = RecyclerViewFragmentDirections.actionListFragmentToEditFragment(itemDesc)
+
+            v.findNavController().navigate(actionName)
+//            v.findNavController().navigate(actionDesc)
 
         } else {
             Log.d(TAG, "Error during editing object")
