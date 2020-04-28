@@ -3,6 +3,7 @@ package com.rogacewicz
 import android.content.Context
 import android.os.Bundle
 import android.os.Handler
+import android.text.util.Linkify
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -47,6 +48,7 @@ class EditFragment : Fragment() {
 
 //        Handler().postDelayed({showKeyboard()},300 )
 
+        taskDescEV.linksClickable = true
 
         taskDescEV.isEnabled = true
 //        taskDescEV.isClickable = true
