@@ -48,9 +48,17 @@ class EditFragment : Fragment() {
 
 //        Handler().postDelayed({showKeyboard()},300 )
 
-        taskDescEV.linksClickable = true
 
-        taskDescEV.isEnabled = true
+
+//        taskDescEV.isFocusable = false
+//        taskDescEV.linksClickable = true
+//        taskDescEV.isClickable = false
+
+//        taskDescEV.isFocusableInTouchMode = false
+
+
+
+
 //        taskDescEV.isClickable = true
 //        taskDescEV.linksClickable = true
 //        taskDescEV.isCursorVisible = false
